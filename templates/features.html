@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+
+{% block title %}Features - BioFind{% endblock %}
+
+{% block content %}
+<!-- Features Hero Section -->
+<section class="features-hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="features-title">Our <span class="highlight">Features</span></h1>
+                <p class="features-subtitle">Explore our cutting-edge biometric identification solutions</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Features -->
+<section class="main-features">
+    <div class="container">
+        <div class="row feature-cards">
+            <div class="col-lg-6">
+                <div class="feature-card-large">
+                    <div class="feature-card-content">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h2>Fingerprint Recognition</h2>
+                        <p>Our advanced fingerprint recognition system uses state-of-the-art algorithms to provide highly accurate identification. The system captures minute details of fingerprint patterns, ensuring reliable matching even in challenging conditions.</p>
+                        <ul class="feature-highlights">
+                            <li><i class="fas fa-check-circle"></i> 99.8% accuracy rate</li>
+                            <li><i class="fas fa-check-circle"></i> Fast processing in milliseconds</li>
+                            <li><i class="fas fa-check-circle"></i> Works with partial fingerprints</li>
+                            <li><i class="fas fa-check-circle"></i> Secure encryption of biometric data</li>
+                            <li><i class="fas fa-check-circle"></i> Compatible with major fingerprint scanners</li>
+                        </ul>
+                        <a href="https://fingerprint.streamlit.app/" class="btn btn-primary btn-lg" target="_blank">Try Fingerprint Recognition</a>
+                    </div>
+                    <div class="feature-card-image">
+                        <img src="{{ url_for('static', filename='images/fingerprint-feature.jpg') }}" alt="Fingerprint Recognition">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-card-large">
+                    <div class="feature-card-content">
+                        <div class="feature-icon-large">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h2>Facial Recognition</h2>
+                        <p>Our facial recognition technology uses deep learning algorithms to identify individuals with exceptional accuracy. The system analyzes facial features and patterns, providing reliable identification even with changes in appearance or lighting conditions.</p>
+                        <ul class="feature-highlights">
+                            <li><i class="fas fa-check-circle"></i> 99.7% accuracy rate</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time identification</li>
+                            <li><i class="fas fa-check-circle"></i> Works in various lighting conditions</li>
+                            <li><i class="fas fa-check-circle"></i> Liveness detection to prevent spoofing</li>
+                            <li><i class="fas fa-check-circle"></i> Privacy-preserving technology</li>
+                        </ul>
+                        <a href="https://face-gemini-identifier-66.lovable.app/" class="btn btn-primary btn-lg" target="_blank">Try Facial Recognition</a>
+                    </div>
+                    <div class="feature-card-image">
+                        <img src="{{ url_for('static', filename='images/facial-feature.jpg') }}" alt="Facial Recognition">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section class="technology-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Our <span class="highlight">Technology</span></h2>
+            <p class="section-subtitle">The science behind our biometric solutions</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="technology-card">
+                    <h3>Advanced Algorithms</h3>
+                    <p>Our proprietary algorithms are the result of years of research and development in the field of biometrics. We use a combination of traditional pattern matching techniques and cutting-edge deep learning models to achieve unparalleled accuracy in identification.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="technology-card">
+                    <h3>Neural Networks</h3>
+                    <p>We employ sophisticated neural network architectures specifically designed for biometric identification. These networks are trained on diverse datasets to ensure they work effectively across different demographics and environmental conditions.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="technology-card">
+                    <h3>Secure Infrastructure</h3>
+                    <p>All biometric data processed by our systems is protected using military-grade encryption. Our infrastructure is designed with security at its core, ensuring that sensitive biometric information remains protected at all times.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="technology-card">
+                    <h3>Continuous Learning</h3>
+                    <p>Our systems are designed to continuously improve through machine learning. As more data is processed, our algorithms become more accurate and robust, adapting to new challenges and scenarios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Use Cases -->
+<section class="use-cases">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Use <span class="highlight">Cases</span></h2>
+            <p class="section-subtitle">How our biometric solutions are making a difference</p>
+        </div>
+        <div class="row use-case-cards">
+            <div class="col-lg-4 col-md-6">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Corporate Security</h3>
+                    <p>Secure access control for office buildings and sensitive areas, ensuring only authorized personnel can enter.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Device Authentication</h3>
+                    <p>Biometric authentication for computers, smartphones, and other devices, replacing traditional passwords.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Patient identification to prevent medical errors and ensure accurate record-keeping in healthcare facilities.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Financial Services</h3>
+                    <p>Secure authentication for banking transactions and access to financial accounts.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel & Border Control</h3>
+                    <p>Streamlined passenger processing at airports and border crossings with biometric verification.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Retail</h3>
+                    <p>Contactless payment systems and personalized shopping experiences through biometric identification.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+            <p class="section-subtitle">Answers to common questions about our biometric solutions</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How secure is biometric identification?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Biometric identification is highly secure when implemented correctly. At BioFind, we use advanced encryption and security protocols to protect all biometric data. Our systems also include liveness detection to prevent spoofing attempts.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How accurate are your biometric systems?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our fingerprint recognition system has a 99.8% accuracy rate, while our facial recognition system achieves 99.7% accuracy. These rates are among the highest in the industry and are continuously improving through machine learning.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How do you handle privacy concerns?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Privacy is a top priority at BioFind. We adhere to strict data protection regulations and implement privacy by design principles. Biometric data is encrypted, and we provide transparent information about how data is used and stored.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Can your systems be integrated with existing security infrastructure?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, our biometric solutions are designed to integrate seamlessly with existing security systems. We provide APIs and SDKs for easy integration, and our team can assist with customization to meet specific requirements.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                What happens if the biometric system fails to identify someone?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our systems include fallback mechanisms for cases where biometric identification may fail. These can include alternative biometric methods or traditional authentication methods, ensuring users are never locked out of the system.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content text-center">
+            <h2>Ready to Experience Advanced Biometric Identification?</h2>
+            <p>Try our biometric solutions today and see the difference for yourself.</p>
+            <div class="cta-buttons">
+                <a href="https://fingerprint.streamlit.app/" class="btn btn-primary btn-lg" target="_blank">Try Fingerprint Recognition</a>
+                <a href="https://face-gemini-identifier-66.lovable.app/" class="btn btn-outline-light btn-lg ms-3" target="_blank">Try Facial Recognition</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

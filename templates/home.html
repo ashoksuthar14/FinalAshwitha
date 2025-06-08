@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block title %}Comprehensive Biometric Identification System Using Deep Learning{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-text-column">
+                <h1 class="hero-title">Comprehensive <span class="highlight">Biometric</span> Identification System Using Deep Learning</h1>
+                <p class="hero-subtitle">Multi-modal biometric identification combining fingerprint and facial recognition for enhanced security</p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('students') }}" class="btn btn-success btn-lg">Student Portal</a>
+                </div>
+            </div>
+            <div class="col-lg-6 hero-image-column">
+                <div class="hero-image-container">
+                    <img src="{{ url_for('static', filename='images/hero-biometric.png') }}" alt="Biometric Identification" class="hero-image">
+                    <div class="floating-element fingerprint-element">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <div class="floating-element face-element">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Overview -->
+<section class="features-overview">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Our <span class="highlight">Advanced</span> Solutions</h2>
+            <p class="section-subtitle">Cutting-edge biometric identification technologies</p>
+        </div>
+        <div class="row feature-cards">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3>Fingerprint Recognition</h3>
+                    <p>Advanced fingerprint scanning and matching algorithms for precise identification.</p>
+                    <a href="https://fingerprint.streamlit.app/" class="btn btn-outline-primary" target="_blank">Try Now</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Facial Recognition</h3>
+                    <p>State-of-the-art facial recognition technology with high accuracy and security.</p>
+                    <a href="https://face-gemini-identifier-66.lovable.app/" class="btn btn-outline-primary" target="_blank">Try Now</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Student Portal</h3>
+                    <p>Register and manage student information with our secure student portal.</p>
+                    <a href="{{ url_for('students') }}" class="btn btn-outline-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>How <span class="highlight">BioFind</span> Works</h2>
+            <p class="section-subtitle">Simple, secure, and effective biometric identification</p>
+        </div>
+        <div class="row steps">
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-upload"></i>
+                    </div>
+                    <h3>Upload</h3>
+                    <p>Upload your biometric data securely to our platform</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Process</h3>
+                    <p>Our advanced algorithms process and analyze the data</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Identify</h3>
+                    <p>Get accurate identification results in seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Why Choose <span class="highlight">BioFind</span></h2>
+            <p class="section-subtitle">The advantages of our biometric identification solutions</p>
+        </div>
+        <div class="row benefits">
+            <div class="col-lg-3 col-md-6">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enhanced Security</h3>
+                    <p>Unparalleled security features to protect sensitive data</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Processing</h3>
+                    <p>Lightning-fast identification in milliseconds</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>High Accuracy</h3>
+                    <p>99.9% accuracy rate in identification results</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Data Privacy</h3>
+                    <p>Strict adherence to data protection regulations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content text-center">
+            <h2>Ready to Experience the Future of Biometric Identification?</h2>
+            <p>Explore our advanced features and see how BioFind can transform your security systems.</p>
+            <a href="{{ url_for('features') }}" class="btn btn-primary btn-lg">Get Started Now</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
