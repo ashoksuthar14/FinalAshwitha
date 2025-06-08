@@ -2,50 +2,31 @@ from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
 import json
 import os
-import chromadb
-from chromadb.config import Settings
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
 # File to store student data
 STUDENTS_FILE = 'students.json'
 
-# --- ChromaDB Setup ---
-chroma_client = chromadb.Client(Settings(
-    persist_directory="chromadb_data"
-))
+# --- PostgreSQL/SQLAlchemy Setup ---
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-STUDENT_COLLECTION = 'students'
+class Student(db.Model):
+    rollno = db.Column(db.String(50), primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    dob = db.Column(db.String(20), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    college = db.Column(db.String(100), nullable=False)
+    branch = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
 
-def get_student_collection():
-    return chroma_client.get_or_create_collection(STUDENT_COLLECTION)
-
-def add_student_chroma(student):
-    col = get_student_collection()
-    col.add(
-        ids=[student['rollno']],
-        documents=[json.dumps(student)],
-        metadatas=[student]
-    )
-
-def get_all_students_chroma():
-    col = get_student_collection()
-    results = col.get(include=['metadatas'])
-    return results['metadatas'] if 'metadatas' in results else []
-
-def delete_student_chroma(rollno):
-    col = get_student_collection()
-    col.delete(ids=[rollno])
-
-def load_students():
-    if os.path.exists(STUDENTS_FILE):
-        with open(STUDENTS_FILE, 'r') as f:
-            return json.load(f)
-    return {}
-
-def save_students(students):
-    with open(STUDENTS_FILE, 'w') as f:
-        json.dump(students, f, indent=4)
+# Create the table (run once, or use Flask-Migrate for production)
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 def calculate_age(dob):
     today = datetime.now()
@@ -76,38 +57,37 @@ def register_student():
     dob = request.form['dob']
     email = request.form['email']
     age = calculate_age(dob)
-    student = {
-        'name': name,
-        'rollno': rollno,
-        'dob': dob,
-        'age': age,
-        'college': 'VJIT',
-        'branch': 'AI',
-        'email': email
-    }
-    add_student_chroma(student)
+    student = Student(
+        rollno=rollno,
+        name=name,
+        dob=dob,
+        age=age,
+        college='VJIT',
+        branch='AI',
+        email=email
+    )
+    db.session.add(student)
+    db.session.commit()
     return redirect(url_for('students'))
 
 @app.route('/search_student')
 def search_student():
     rollno = request.args.get('rollno', '').strip()
-    col = get_student_collection()
-    student = None
-    if rollno:
-        results = col.get(ids=[rollno], include=['metadatas'])
-        if results['metadatas'] and len(results['metadatas']) > 0:
-            student = results['metadatas'][0]
+    student = Student.query.filter_by(rollno=rollno).first() if rollno else None
     return render_template('students.html', student=student, search_rollno=rollno)
 
 @app.route('/database')
 def database():
-    students = get_all_students_chroma()
+    students = Student.query.all()
     return render_template('database.html', students=students)
 
 @app.route('/delete_student', methods=['POST'])
 def delete_student():
     rollno = request.form['rollno']
-    delete_student_chroma(rollno)
+    student = Student.query.filter_by(rollno=rollno).first()
+    if student:
+        db.session.delete(student)
+        db.session.commit()
     return redirect(url_for('database'))
 
 if __name__ == '__main__':
