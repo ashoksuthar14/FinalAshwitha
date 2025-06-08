@@ -8,3 +8,4 @@ gunicorn
 chromadb
 psycopg2-binary
 SQLAlchemy
+Flask-SQLAlchemy
