@@ -14,6 +14,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+with app.app_context():
+    db.create_all()
+
 class Student(db.Model):
     rollno = db.Column(db.String(50), primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -22,11 +25,6 @@ class Student(db.Model):
     college = db.Column(db.String(100), nullable=False)
     branch = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
-
-# Create the table (run once, or use Flask-Migrate for production)
-@app.before_first_request
-def create_tables():
-    db.create_all()
 
 def calculate_age(dob):
     today = datetime.now()
